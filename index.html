@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A student record management system">
+    <title>StudentHub | Record Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">S</div>
+            <span>StudentHub</span>
+        </div>
+
+        <p class="nav-label">WORKSPACE</p>
+        <a href="#dashboard" class="nav-item active">▦ Dashboard</a>
+        <a href="#student-form" class="nav-item">＋ Add Student</a>
+        <a href="#records" class="nav-item">☷ Student Records</a>
+
+        <div class="sidebar-bottom">
+            <div class="profile-avatar">SR</div>
+            <div>
+                <strong>Admin</strong>
+                <small>Record Manager</small>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">MANAGEMENT SYSTEM</p>
+                <h1>Student Dashboard</h1>
+                <p class="subtitle">Manage student information in one place.</p>
+            </div>
+            <button class="primary-btn" id="addStudentBtn">
+                + Add Student
+            </button>
+        </header>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-icon purple">♙</div>
+                <p>Total Students</p>
+                <h2 id="totalStudents">0</h2>
+                <span>Registered students</span>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon green">▤</div>
+                <p>Total Courses</p>
+                <h2 id="totalCourses">0</h2>
+                <span>Unique courses</span>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon orange">✓</div>
+                <p>Valid Emails</p>
+                <h2 id="validEmails">0</h2>
+                <span>Verified format</span>
+            </article>
+        </section>
+
+        <section class="panel form-panel" id="student-form">
+            <div class="section-heading">
+                <div>
+                    <h2>Add New Student</h2>
+                    <p>Enter the student's details below.</p>
+                </div>
+                <span class="section-tag">REGISTRATION</span>
+            </div>
+
+            <form id="studentForm" novalidate>
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="studentId">Student ID</label>
+                        <input type="text" id="studentId"
+                               placeholder="e.g. STU101" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="studentName">Full Name</label>
+                        <input type="text" id="studentName"
+                               placeholder="Enter full name" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="studentEmail">Email Address</label>
+                        <input type="email" id="studentEmail"
+                               placeholder="student@example.com" required>
+                        <small class="field-hint">Enter a valid email address.</small>
+                    </div>
+
+                    <div class="field">
+                        <label for="studentCourse">Course</label>
+                        <input type="text" id="studentCourse"
+                               placeholder="e.g. Computer Science" required>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <p id="formMessage" class="message" role="status"></p>
+                    <button type="reset" class="secondary-btn">Clear</button>
+                    <button type="submit" class="primary-btn">
+                        Save Student
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel records-panel" id="records">
+            <div class="section-heading records-heading">
+                <div>
+                    <h2>Student Records</h2>
+                    <p>View and manage registered students.</p>
+                </div>
+                <button id="exportBtn" class="secondary-btn">
+                    ↓ Export JSON
+                </button>
+            </div>
+
+            <div class="search-box">
+                <span>⌕</span>
+                <input type="search" id="searchInput"
+                       placeholder="Search by name, ID, email or course...">
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STUDENT</th>
+                            <th>EMAIL</th>
+                            <th>COURSE</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody"></tbody>
+                </table>
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">♙</div>
+                    <h3>No student records yet</h3>
+                    <p>Add your first student using the form above.</p>
+                </div>
+            </div>
+            <div class="table-footer">
+                <span id="recordCount">Showing 0 students</span>
+                <span class="storage-status">● Saved in this browser</span>
+            </div>
+        </section>
+
+        <footer>
+            StudentHub · Student Record Manager · Module 2 Assignment
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
